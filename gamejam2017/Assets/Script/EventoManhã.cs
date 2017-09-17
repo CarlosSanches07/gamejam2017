@@ -9,7 +9,7 @@ public class EventoManhã : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         personagem.SetActive(false);
-        //canvas.SetActive(false);
+        canvas.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -22,4 +22,4 @@ public class EventoManhã : MonoBehaviour {
             personagem.SetActive(true);
         }
     }
-}
+}   

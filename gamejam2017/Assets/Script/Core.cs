@@ -22,8 +22,7 @@ public class Core : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = new Player();
-        flag = 1;
-        iniciaLista();
+        Instantiate<GameObject>(eventoMan);
         //invoca o prefab de atualização de tela com o nome do jogo
         //Invoca o começo do jogo com as instruções do Sr. Miagy
         //set a flag pra 0
@@ -31,33 +30,7 @@ public class Core : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        print(flag);
-        if(!eventoMed.active)
-        {
-            Instantiate<GameObject>(eventoMed);
-            flag = 2;
-        }
-        else if (flag == 2)
-        {
-            Instantiate<GameObject>(eventoTar);
-            flag = -1;
-        }
-        else if (flag == 3)
-        {
-            Instantiate<GameObject>(eventoNoi);
-            flag = -1;
-        }
-        else if (flag == 4)
-        {
-            Instantiate<GameObject>(eventoMec);
-            flag = -1;
-        }
-        else if (flag == 5)
-        {
-            Instantiate<GameObject>(eventoMed);
-            flag = -1;
-        }
-        /*  print(flag);
+        /* print(flag);
          if (flag == 0)
               //reinicia
               //chama miagy
@@ -105,20 +78,18 @@ public class Core : MonoBehaviour {
     }
     public void bike()
     {
-        print("ow yeah");
-        flag = 2;
         rand = Random.Range(0, 100);
         //player.setDecisoes(1);
         if (rand < 20)
         {
             //player.setMedidorHumor(player.getMedidorHumor() - 30);
-            flag = 5;
+            Instantiate<GameObject>(eventoMed);
         }
         else
         {
             //player.setMedidorHumor(player.getMedidorHumor() + 30);
             //tela de deu bom(Viagem de bike foi sussa);
-            flag = 2;
+            Instantiate<GameObject>(eventoTar);
         }
     }
     public void eventoManha(List<Evento> eventos)
