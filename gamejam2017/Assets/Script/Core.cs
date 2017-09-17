@@ -11,9 +11,18 @@ public class Core : MonoBehaviour {
     private int flag;
     Player player;
 
-	// Use this for initialization
-	void Start () {
+    //Eventos
+
+    public GameObject eventoMan;
+    public GameObject eventoTar;
+    public GameObject eventoNoi;
+    public GameObject eventoMed;
+    public GameObject eventoMec;
+
+    // Use this for initialization
+    void Start () {
         player = new Player();
+        flag = 1;
         iniciaLista();
         //invoca o prefab de atualização de tela com o nome do jogo
         //Invoca o começo do jogo com as instruções do Sr. Miagy
@@ -22,33 +31,63 @@ public class Core : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (flag == 0)
-            //reinicia
-            //chama miagy
-       if (flag == 1)
-            { 
-                eventoManha(eventos);
-                posicao = 1;
-            }
-        if (flag == 2)
+        print(flag);
+        if(!eventoMed.active)
         {
-            eventoTarde(eventos);
-            posicao = 2;
+            Instantiate<GameObject>(eventoMed);
+            flag = 2;
         }
-        if (flag == 3)
+        else if (flag == 2)
         {
-            eventoNoite(eventos);
-            posicao = 3;
+            Instantiate<GameObject>(eventoTar);
+            flag = -1;
         }
-        if (flag == 4)
-            EventoMedico(eventos);
-        if (flag == 5)
-            eventoMecanico(eventos);
-        if (flag == 6) ;
-            // eventoFimdeSemana();
-        if (flag == 7) ;
-            // cenaMiagy
-	}
+        else if (flag == 3)
+        {
+            Instantiate<GameObject>(eventoNoi);
+            flag = -1;
+        }
+        else if (flag == 4)
+        {
+            Instantiate<GameObject>(eventoMec);
+            flag = -1;
+        }
+        else if (flag == 5)
+        {
+            Instantiate<GameObject>(eventoMed);
+            flag = -1;
+        }
+        /*  print(flag);
+         if (flag == 0)
+              //reinicia
+              //chama miagy
+         else if (flag == 1)
+              {
+                  print("?");
+                  Instantiate<GameObject>(eventoMan);
+                  flag = 2;
+                  eventoManha(eventos);
+                  posicao = 1;
+              }
+          else if (flag == 2)
+          {
+              eventoTarde(eventos);
+              posicao = 2;
+          }
+          else if (flag == 3)
+          {
+              eventoNoite(eventos);
+              posicao = 3;
+          }
+          else if (flag == 4)
+              EventoMedico(eventos);
+          else if (flag == 5)
+              eventoMecanico(eventos);
+          else if (flag == 6) ;
+              // eventoFimdeSemana();
+          else if (flag == 7) ;
+              // cenaMiagy*/
+    }
 
     public List<Evento> iniciaLista()
     {
@@ -64,9 +103,27 @@ public class Core : MonoBehaviour {
         eventos.Add(evento3);
         return eventos;
     }
-
+    public void bike()
+    {
+        print("ow yeah");
+        flag = 2;
+        rand = Random.Range(0, 100);
+        //player.setDecisoes(1);
+        if (rand < 20)
+        {
+            //player.setMedidorHumor(player.getMedidorHumor() - 30);
+            flag = 5;
+        }
+        else
+        {
+            //player.setMedidorHumor(player.getMedidorHumor() + 30);
+            //tela de deu bom(Viagem de bike foi sussa);
+            flag = 2;
+        }
+    }
     public void eventoManha(List<Evento> eventos)
     {
+        Instantiate<GameObject>(eventoMan);
         switch (eventos[posicao].getOpcao())
         {
             //vai de bike
@@ -76,7 +133,7 @@ public class Core : MonoBehaviour {
                 if (rand < 20)
                 {
                     player.setMedidorHumor(player.getMedidorHumor() - 30);
-                    flag = 4;
+                    EventoMedico(eventos);
                 }
                 else
                 {

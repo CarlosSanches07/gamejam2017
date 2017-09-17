@@ -3,11 +3,16 @@ using System.Collections.Generic;
 
 public class Player {
     private string nome;
-    private int[] decisoes;
+    private List<int> decisoes;
     private int humor;
     private float saldo;
     private float saldoAnterior;
     private int medidorHumor;
+
+    public Player()
+    {
+        this.decisoes = new List<int>();
+    }
 
     public void setMedidorHumor(int medH)
     {
@@ -26,7 +31,7 @@ public class Player {
 
     public void setDecisoes(int decisao)
     {
-        this.decisoes[decisoes.Length] = decisao;
+        this.decisoes.Add(decisao);
     }
 
     public void setHumor(int medHumor)

@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1914117235422832}
+  m_IsPrefabParent: 1
+--- !u!1 &1914117235422832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4103588489753518}
+  - component: {fileID: 114899896427380878}
+  m_Layer: 0
+  m_Name: GeraEvento
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4103588489753518
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1914117235422832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114899896427380878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1914117235422832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ec4415e90108a46b8c572df2be222a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventoMan: {fileID: 1933432737905640, guid: 7ea4b1603e3d65540941d8abddc46ba7, type: 2}
+  eventoTar: {fileID: 1863335141047724, guid: 15e6649086ee24d489e1650fb49bf821, type: 2}
+  eventoNoi: {fileID: 1305768289247242, guid: e68c5f7205b6f094fa9b1ef5d3766726, type: 2}
+  eventoMed: {fileID: 1790822096018128, guid: 4f741b5334548a049900d5d4e74cc9dc, type: 2}
+  eventoMec: {fileID: 1839786388824786, guid: 1a054c9a7becca74386e436f2f8fbe73, type: 2}
