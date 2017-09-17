@@ -22,16 +22,32 @@ public class Core : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-            if(dia == 7)
-                //chama miagy
-            if (flag == 1)
+        if (flag == 0)
+            //reinicia
+            //chama miagy
+       if (flag == 1)
+            { 
                 eventoManha(eventos);
-            if (flag == 2)
-                eventoTarde(eventos);
-            if (flag == 3)
-                eventoNoite(eventos);
-        if (dia == 6) ;
-                // eventoFimdeSemana();
+                posicao = 1;
+            }
+        if (flag == 2)
+        {
+            eventoTarde(eventos);
+            posicao = 2;
+        }
+        if (flag == 3)
+        {
+            eventoNoite(eventos);
+            posicao = 3;
+        }
+        if (flag == 4)
+            EventoMedico(eventos);
+        if (flag == 5)
+            eventoMecanico(eventos);
+        if (flag == 6) ;
+            // eventoFimdeSemana();
+        if (flag == 7) ;
+            // cenaMiagy
 	}
 
     public List<Evento> iniciaLista()
@@ -60,7 +76,7 @@ public class Core : MonoBehaviour {
                 if (rand < 20)
                 {
                     player.setMedidorHumor(player.getMedidorHumor() - 30);
-                    EventoMedico(eventos);
+                    flag = 4;
                 }
                 else
                 {
@@ -83,7 +99,7 @@ public class Core : MonoBehaviour {
                 {
                     //deu ruim o carro quebrou
                     player.setMedidorHumor(player.getMedidorHumor() - 30);
-                    eventoMecanico(eventos);
+                    flag = 5;
                 }
                 else
                 {
@@ -107,7 +123,7 @@ public class Core : MonoBehaviour {
                 {
                     //Deu ruim invoka banheiro
                     player.setMedidorHumor(player.getMedidorHumor() - 30);
-                    EventoMedico(eventos);
+                    flag = 4;
                 }
                 else
                 {
@@ -129,7 +145,7 @@ public class Core : MonoBehaviour {
                 {
                     //deu ruim comida zoada
                     player.setMedidorHumor(player.getMedidorHumor() - 30);
-                    EventoMedico(eventos);
+                    flag = 4;
                 }
                 else
                 {
@@ -137,7 +153,6 @@ public class Core : MonoBehaviour {
                 }
                 break;
         }
-        flag = 3;
     }
 
     public void eventoNoite(List<Evento> eventos)
@@ -152,7 +167,7 @@ public class Core : MonoBehaviour {
                 {
                     //Deu ruim invoka banheiro
                     player.setMedidorHumor(player.getMedidorHumor() - 30);
-                    EventoMedico(eventos);
+                    flag = 4;
                 }
                 else
                 {
@@ -174,7 +189,7 @@ public class Core : MonoBehaviour {
                 {
                     //deu ruim comida zoada
                     player.setMedidorHumor(player.getMedidorHumor() - 30);
-                    EventoMedico(eventos);
+                    flag = 4;
                 }
                 else
                 {
@@ -189,8 +204,8 @@ public class Core : MonoBehaviour {
 
     public void eventoMecanico(List<Evento> eventos)
     {
-        eventos[posicao].setSubEvento(new Evento("Mecanico", 4, "Parece que seu carro já era"));
-        switch (eventos[posicao].getSubEvento().getOpcao())
+        eventos[posicao -1].setSubEvento(new Evento("Mecanico", 4, "Parece que seu carro já era"));
+        switch (eventos[posicao-1].getSubEvento().getOpcao())
         {
             //Primo
             case 1:
@@ -228,8 +243,8 @@ public class Core : MonoBehaviour {
 
     public void EventoMedico(List<Evento> eventos)
     {
-        eventos[posicao].setSubEvento(new Evento("Medico", 5, "Parece que não está bem, que tal comprar um remédio?"));
-        switch (eventos[posicao].getSubEvento().getOpcao())
+        eventos[posicao -1].setSubEvento(new Evento("Medico", 5, "Parece que não está bem, que tal comprar um remédio?"));
+        switch (eventos[posicao -1].getSubEvento().getOpcao())
         {
             //Pegar com o amigo
             case 1:
